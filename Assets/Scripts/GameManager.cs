@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     {
         //si la variable est vrai, part l'animation (POUR TOI ANTHONY!)
         if(jeTourne){
-            Debug.Log($" Je tourne fort ");
             JeTourne();
         }
         
