@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //variables accessible publiquement pour être modifié à l'externe
+    public bool jeTourne = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //si la variable est vrai, part l'animation (POUR TOI ANTHONY!)
+        if(jeTourne){
+            JeTourne();
+        }
         
     }
 
@@ -22,5 +30,10 @@ public class GameManager : MonoBehaviour
         {
             Display.displays[i].Activate();
         }
+    }
+
+    //TON SCRIPT ICIIIII!!!
+    void JeTourne(){
+        
     }
 }

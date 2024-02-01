@@ -363,6 +363,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337937982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 54894e0e56db16743887aeeba707feec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1819367584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1819367584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,6 +455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cameras
       objectReference: {fileID: 0}
+    - target: {fileID: 636774918775312910, guid: 91231466cef842548adfbc79b581659a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3005262638958176175, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
       propertyPath: m_RootOrder
@@ -504,7 +515,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4848229382161548076, guid: 91231466cef842548adfbc79b581659a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -577,6 +589,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SerialController
       objectReference: {fileID: 0}
+    - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
+        type: 3}
+      propertyPath: gameObjectTest
+      value: 
+      objectReference: {fileID: 1337937982}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
