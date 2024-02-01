@@ -1,62 +1,84 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 public class ImageLoader : MonoBehaviour
 {
     public string imageFolderPath; // Chemin du dossier contenant les images
-    public GameObject cubePrefab; // Préfabriqué du cube à utiliser
 
-    private string[] previousImages; // Liste des images déjà traitées
-    private float lastCheckTime; // Dernier moment où nous avons vérifié les nouvelles images
+    private List<(Texture2D, DateTime)> textureList = new List<(Texture2D, DateTime)>(); // Liste des textures chargées avec leur date d'ajout
+    private GameObject[] cubes; // Tableau des cubes
 
     void Start()
     {
-        // Initialiser la liste des images déjà traitées
-        previousImages = Directory.GetFiles(imageFolderPath, "*.png");
-
-        // Initialiser le dernier moment de vérification des nouvelles images
-        lastCheckTime = Time.time;
+        // Récupérer tous les objets avec le tag "Cube" au démarrage
+        cubes = GameObject.FindGameObjectsWithTag("Cube");
     }
 
     void Update()
     {
-        // Vérifier s'il s'est écoulé une seconde depuis la dernière vérification
-        if (Time.time - lastCheckTime >= 1f)
+        // Vérifier s'il y a de nouvelles images à chaque mise à jour
+        string[] currentImages = Directory.GetFiles(imageFolderPath, "*.png");
+        foreach (string imagePath in currentImages)
         {
-            // Mettre à jour le dernier moment de vérification
-            lastCheckTime = Time.time;
+            // Charger la nouvelle image depuis le fichier
+            byte[] fileData = File.ReadAllBytes(imagePath);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(fileData);
 
-            // Vérifier s'il y a de nouvelles images ajoutées au dossier
-            string[] currentImages = Directory.GetFiles(imageFolderPath, "*.png");
-            foreach (string imagePath in currentImages)
+            // Ajouter la texture à la liste avec sa date d'ajout
+            textureList.Add((texture, DateTime.Now));
+
+            // Afficher le nom de la nouvelle image
+            Debug.Log("Nouvelle image détectée : " + Path.GetFileName(imagePath));
+
+            // Si le nombre de textures dépasse le nombre de cubes, retirer la texture la plus ancienne
+            if (textureList.Count > cubes.Length)
             {
-                if (!ArrayContains(previousImages, imagePath))
-                {
-                    // Nouvelle image détectée, chargement de la texture et création du cube
-                    byte[] fileData = File.ReadAllBytes(imagePath);
-                    Texture2D texture = new Texture2D(2, 2);
-                    texture.LoadImage(fileData);
-
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cube.transform.position = Vector3.zero; // Position du cube
-                    cube.GetComponent<Renderer>().material.mainTexture = texture;
-                }
+                RemoveOldestTexture();
             }
-
-            // Mettre à jour la liste des images déjà traitées
-            previousImages = currentImages;
         }
+
+        // Mettre à jour les textures des cubes
+        for (int i = 0; i < cubes.Length; i++)
+        {
+            // S'assurer qu'il y a une texture associée au cube
+            if (i < textureList.Count)
+            {
+                // Récupérer le renderer du cube
+                Renderer cubeRenderer = cubes[i].GetComponent<Renderer>();
+
+                // Assigner la texture au cube
+                cubeRenderer.material.mainTexture = textureList[i].Item1;
+            }
+        }
+
+        // Afficher le nombre total de cubes et de textures
+        Debug.Log("Nombre total de cubes : " + cubes.Length);
+        Debug.Log("Nombre total de textures : " + textureList.Count);
     }
 
-    bool ArrayContains(string[] array, string value)
+    void RemoveOldestTexture()
     {
-        foreach (string element in array)
+        // Recherche de la texture la plus ancienne dans la liste
+        DateTime oldestDate = DateTime.MaxValue;
+        int indexToRemove = -1;
+        for (int i = 0; i < textureList.Count; i++)
         {
-            if (element == value)
+            if (textureList[i].Item2 < oldestDate)
             {
-                return true;
+                oldestDate = textureList[i].Item2;
+                indexToRemove = i;
             }
         }
-        return false;
+
+        // Suppression de la texture la plus ancienne de la liste
+        if (indexToRemove >= 0)
+        {
+            Texture2D textureToRemove = textureList[indexToRemove].Item1;
+            Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
+            textureList.RemoveAt(indexToRemove);
+        }
     }
 }
