@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyMessageListener : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     // Use this for initialization
     void Start()
     {
@@ -16,7 +16,9 @@ public class MyMessageListener : MonoBehaviour
     // Invoked when a line of data is received from the serial device.
     void OnMessageArrived(string msg)
     {
-        gameManager.jeTourne=true;
+
+   
+        gameManager.jeTourne= !gameManager.jeTourne;
         
         Debug.Log("Arrived: " + msg);
     }
