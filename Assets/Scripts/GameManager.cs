@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //si la variable est vrai, part l'animation (POUR TOI ANTHONY!)
-        if(jeTourne){
+        if (jeTourne)
+        {
             JeTourne();
         }
-        
+
     }
 
     void ActivateMultiMonitors()
@@ -40,16 +41,17 @@ public class GameManager : MonoBehaviour
     }
 
     //TON SCRIPT ICIIIII!!!
-    void JeTourne(){
-         int numCubes = cubes.Length;
+    void JeTourne()
+    {
+        int numCubes = cubes.Length;
         for (int i = 0; i < numCubes; i++)
         {
             cubes[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
-       void FindAndDistributeCubes()
+    void FindAndDistributeCubes()
     {
-        cubes = GameObject.FindGameObjectsWithTag("Cube"); // Trouver tous les cubes avec le tag "Cube"
+        cubes = GameObject.FindGameObjectsWithTag("Horse"); // Trouver tous les cubes avec le tag "Cube"
         int numCubes = cubes.Length;
         float angleIncrement = 360f / numCubes;
         for (int i = 0; i < numCubes; i++)

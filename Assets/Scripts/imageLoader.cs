@@ -54,9 +54,7 @@ public class ImageLoader : MonoBehaviour
             }
         }
 
-        // Afficher le nombre total de cubes et de textures
-        Debug.Log("Nombre total de cubes : " + cubes.Length);
-        Debug.Log("Nombre total de textures : " + textureList.Count);
+    
     }
 
     void RemoveOldestTexture()
