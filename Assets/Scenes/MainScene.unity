@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,6 +162,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1484917227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &423728200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1020492651}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026fc23feef16a84394b160e3377bad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &558429980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f3fa1fdf7bed3437286ee231c7bf75ec,
@@ -353,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 1773843723963520781, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1773843723963520781, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
@@ -363,7 +375,7 @@ PrefabInstance:
     - target: {fileID: 1773843723963520781, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.36
+      value: 31.2
       objectReference: {fileID: 0}
     - target: {fileID: 3005262638958176175, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
@@ -422,13 +434,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3928449752329218854, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
+      propertyPath: far clip plane
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928449752329218854, guid: 91231466cef842548adfbc79b581659a,
+        type: 3}
       propertyPath: orthographic size
       value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7534882558480651868, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.61
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 7534882558480651868, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
@@ -438,7 +455,12 @@ PrefabInstance:
     - target: {fileID: 7534882558480651868, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.34
+      value: -7.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715220141482236672, guid: 91231466cef842548adfbc79b581659a,
+        type: 3}
+      propertyPath: far clip plane
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8715220141482236672, guid: 91231466cef842548adfbc79b581659a,
         type: 3}
@@ -841,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
         type: 3}
       propertyPath: jeTourne
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
         type: 3}
@@ -1221,7 +1243,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 423728200}
     - target: {fileID: 6303612292663243361, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: m_RootOrder

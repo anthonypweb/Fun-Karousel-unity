@@ -7,16 +7,17 @@ public class MyMessageListener : MonoBehaviour
     [SerializeField] private GameManager gameManager;
 
     // Définir les bornes de la plage initiale et finale
-    const float minPlageInitiale = 23f;
-    const float maxPlageInitiale = 720f;
-    const float minPlageFinale = 5f;
-    const float maxPlageFinale = 60f;
+      [SerializeField] private int minPlageInitiale = 0;
+     [SerializeField]  private int maxPlageInitiale = 450;
+      [SerializeField] private int minPlageFinale = 5;
+       [SerializeField] private int maxPlageFinale = 60;
 
     // Fonction pour convertir la valeur de la plage initiale à la plage finale
-    float ConvertirPlage(float valeur)
+    void ConvertirPlage(int valeur)
     {
+        
         // Appliquer une règle de trois
-        return minPlageFinale + (valeur - minPlageInitiale) * (maxPlageFinale - minPlageFinale) / (maxPlageInitiale - minPlageInitiale);
+        gameManager.rotationSpeed = minPlageFinale + (valeur - minPlageInitiale) * (maxPlageFinale - minPlageFinale) / (maxPlageInitiale - minPlageInitiale);
     }
 
     // Use this for initialization
@@ -31,20 +32,29 @@ public class MyMessageListener : MonoBehaviour
     }
 
     // Invoked when a line of data is received from the serial device.
-    void OnMessageArrived(string msg)
-    {
-        // Convertir la valeur de la chaîne en float
-        float valeurCapteurAnalogique = float.Parse(msg);
-
-        // Convertir la valeur de la plage initiale à la plage finale
-        float vitesseConvertie = ConvertirPlage(valeurCapteurAnalogique);
-
-        // Envoyer la vitesse convertie au GameManager
-
-        gameManager.rotationSpeed = vitesseConvertie;
-        Debug.Log("Valeur du capteur analogique : " + valeurCapteurAnalogique);
-        Debug.Log("Vitesse convertie : " + vitesseConvertie);
+ void OnMessageArrived(string msg)
+{
+    // Diviser la chaîne en deux parties en utilisant la virgule comme délimiteur
+    string[] parties = msg.Split(',');
+    
+    // Vérifier si la première partie est "0" pour déterminer l'état du bouton
+    if(parties[0] == "1"){
+        gameManager.jeTourne = !gameManager.jeTourne;
     }
+    
+
+    // Convertir la deuxième partie en valeur numérique pour obtenir la valeur de la roulette
+    int valeurRoulette = int.Parse(parties[1]);
+
+    // Faites ce que vous voulez avec les valeurs séparées
+    //Debug.Log("Bouton pressé : " + boutonPresse);
+    //Debug.Log("Valeur de la roulette : " + valeurRoulette);
+
+    // Maintenant, vous pouvez utiliser ces valeurs comme vous le souhaitez, par exemple les envoyer à votre GameManager
+    // gameManager.boutonPresse = boutonPresse;
+    // gameManager.valeurRoulette = valeurRoulette;
+    ConvertirPlage(valeurRoulette);
+}
 
     // Invoked when a connect/disconnect event occurs. The parameter 'success'
     // will be 'true' upon connection, and 'false' upon disconnection or

@@ -31,7 +31,7 @@ public class ImageLoader : MonoBehaviour
             textureList.Add((texture, DateTime.Now));
 
             // Afficher le nom de la nouvelle image
-            Debug.Log("Nouvelle image détectée : " + Path.GetFileName(imagePath));
+            //Debug.Log("Nouvelle image détectée : " + Path.GetFileName(imagePath));
 
             // Si le nombre de textures dépasse le nombre de cubes, retirer la texture la plus ancienne
             if (textureList.Count > cubes.Length)

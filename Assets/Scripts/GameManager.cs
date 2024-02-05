@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public bool jeTourne = false;
     public GameObject centerObject; // Objet autour duquel les cubes doivent tourner
     public float radius = 5f; // Rayon de distribution des cubes
-    public float rotationSpeed = 1f; // Vitesse de rotation des cubes
+    public int rotationSpeed = 1; // Vitesse de rotation des cubes
 
     private GameObject[] cubes; // Tableau pour stocker les cubes
 
