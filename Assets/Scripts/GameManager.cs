@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     public float radius = 5f; // Rayon de distribution des cubes
     public int rotationSpeed = 1; // Vitesse de rotation des cubes
 
-    private GameObject[] cubes; // Tableau pour stocker les cubes
+    private GameObject[] horses; // Tableau pour stocker les cubes
 
 
     // Start is called before the first frame update
     void Start()
     {
         //ActivateMultiMonitors();
-        FindAndDistributeCubes();
+        FindAndDistributeHorses();
 
     }
 
@@ -43,22 +43,22 @@ public class GameManager : MonoBehaviour
     //TON SCRIPT ICIIIII!!!
     void JeTourne()
     {
-        int numCubes = cubes.Length;
-        for (int i = 0; i < numCubes; i++)
+        int numHorses = horses.Length;
+        for (int i = 0; i < numHorses; i++)
         {
-            cubes[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
+            horses[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
-    void FindAndDistributeCubes()
+    void FindAndDistributeHorses()
     {
-        cubes = GameObject.FindGameObjectsWithTag("Horse"); // Trouver tous les cubes avec le tag "Cube"
-        int numCubes = cubes.Length;
-        float angleIncrement = 360f / numCubes;
-        for (int i = 0; i < numCubes; i++)
+        horses = GameObject.FindGameObjectsWithTag("Horse"); // Trouver tous les cubes avec le tag "Cube"
+        int numHorses = horses.Length;
+        float angleIncrement = 360f / numHorses;
+        for (int i = 0; i < numHorses; i++)
         {
             float angle = i * angleIncrement;
             Vector3 offset = Quaternion.Euler(0f, angle, 0f) * Vector3.forward * radius;
-            cubes[i].transform.position = centerObject.transform.position + offset;
+            horses[i].transform.position = centerObject.transform.position + offset;
         }
     }
 
