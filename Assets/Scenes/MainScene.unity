@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -6.58, y: 11.23, z: 11.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1239,6 +1239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxPlageInitiale
       value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303612292652254539, guid: 8b640900826506544bedbfa0e036ece5,
+        type: 3}
+      propertyPath: portName
+      value: COM4
       objectReference: {fileID: 0}
     - target: {fileID: 6303612292663243361, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
