@@ -6,11 +6,16 @@ public class GameManager : MonoBehaviour
 {
     //variables accessible publiquement pour être modifié à l'externe
     public bool jeTourne = false;
-    public GameObject centerObject; // Objet autour duquel les cubes doivent tourner
-    public float radius = 5f; // Rayon de distribution des cubes
-    public int rotationSpeed = 1; // Vitesse de rotation des cubes
+    public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
+    public bool triggerChangementTheme = false;
 
-    private GameObject[] horses; // Tableau pour stocker les cubes
+    [SerializeField] private GameObject centerObject; // Objet autour duquel les cheveaux doivent tourner
+    [SerializeField] public float radius = 5f; // Rayon de distribution des cheveaux
+    [SerializeField] public int rotationSpeed = 1; // Vitesse de rotation des cheveaux
+
+    private GameObject[] horses; // Tableau pour stocker les cheveaux
+
+    [SerializeField] private AudioManager audioManager; //Variable contenant l'AudioManager
 
 
     // Start is called before the first frame update
@@ -18,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         //ActivateMultiMonitors();
         FindAndDistributeHorses();
+
 
     }
 
@@ -30,6 +36,8 @@ public class GameManager : MonoBehaviour
             JeTourne();
         }
 
+
+        VerifTheme(); // Fonction Appeler pour verifier le theme actif
     }
 
     void ActivateMultiMonitors()
@@ -60,6 +68,17 @@ public class GameManager : MonoBehaviour
             Vector3 offset = Quaternion.Euler(0f, angle, 0f) * Vector3.forward * radius;
             horses[i].transform.position = centerObject.transform.position + offset;
         }
+    }
+
+    //Fonction appeler pour gerer les themes : Les sons et Animation/model3D
+    void VerifTheme(){
+        if(triggerChangementTheme) //si changement theme sur la switch
+        {
+            theme = !theme;
+            audioManager.ChangementTheme();
+            triggerChangementTheme = !triggerChangementTheme;
+        }
+        
     }
 
 }
