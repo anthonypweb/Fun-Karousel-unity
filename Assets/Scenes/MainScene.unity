@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 905291b41b1b6bc4bacc8ed86008c7c8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c69f43ffa1ab00b49a19a7e74648d98f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -173,7 +173,8 @@ MonoBehaviour:
   audioSource2D: {fileID: 1032004360}
   musiquesCaroussel:
   - {fileID: 0}
-  - {fileID: 8300000, guid: 57c9959742db5db459b72e289a1245a4, type: 3}
+  - {fileID: 8300000, guid: 32389efa159135540b88317fe8c9145b, type: 3}
+  fadeDuration: 1
 --- !u!114 &423728200 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
@@ -895,32 +896,32 @@ PrefabInstance:
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.750722
+      value: 3.1177878
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.750722
+      value: 3.1177878
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.750722
+      value: 3.1177878
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.07
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.21
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.64
+      value: 8.15
       objectReference: {fileID: 0}
     - target: {fileID: 3109210342666299559, guid: 36e0068b000769a49bfe3311bae9942b,
         type: 3}
