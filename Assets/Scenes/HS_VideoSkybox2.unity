@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 42eeb019cddbcb3498dddd3f675e1235, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bd5c0c3511542d14197d33e3d972dd49, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -150,7 +150,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196490750}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c552dc5f980d117468b680fa88973b70, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 7c475e5407c5ab44e885c7ee745987a7, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -2010,7 +2010,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386654180}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 2d0e5971f513c3842bdde7a4c840a168, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: bf84379736a8caf48a1186515965c6ec, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -2078,7 +2078,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404217336}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5f00b67c2697f274db45a878f0bc6c32, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 318fc68586804bc4791fd0793fe2b653, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
