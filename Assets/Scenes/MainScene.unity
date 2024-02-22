@@ -415,7 +415,7 @@ MonoBehaviour:
   audioSource2D: {fileID: 1032004360}
   musiquesCaroussel:
   - {fileID: 0}
-  - {fileID: 8300000, guid: 32389efa159135540b88317fe8c9145b, type: 3}
+  - {fileID: 8300000, guid: 3b5000115deec2d458e36146cd184ed4, type: 3}
   fadeDuration: 1
 --- !u!1 &342671969
 GameObject:
