@@ -15,10 +15,10 @@ public class MyMessageListener : MonoBehaviour
     // Fonction pour convertir la valeur de la plage initiale à la plage finale
     void ConvertirPlage(int valeur)
     {
-        if(gameManager.jeTourne){ //Si le carousel est ON
+       
             // Appliquer une règle de trois
             gameManager.rotationSpeed = minPlageFinale + (valeur - minPlageInitiale) * (maxPlageFinale - minPlageFinale) / (maxPlageInitiale - minPlageInitiale);
-        }
+        
         
     }
 

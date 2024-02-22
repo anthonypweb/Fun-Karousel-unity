@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ActivateMultiMonitors();
-        FindAndDistributeHorses();
+        
 
 
     }
@@ -30,26 +29,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //si la variable est vrai, part l'animation (POUR TOI ANTHONY!)
-        if (jeTourne)
-        {
-            JeTourne();
-        }
-
+        
 
         VerifTheme(); // Fonction Appeler pour verifier le theme actif
     }
 
-    void ActivateMultiMonitors()
-    {
-        for (int i = 1; i < Display.displays.Length; i++)
-        {
-            Display.displays[i].Activate();
-        }
-    }
 
     //TON SCRIPT ICIIIII!!!
-    void JeTourne()
+    void ChangementRapidite()
     {
         int numHorses = horses.Length;
         for (int i = 0; i < numHorses; i++)
@@ -57,18 +44,7 @@ public class GameManager : MonoBehaviour
             horses[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
-    void FindAndDistributeHorses()
-    {
-        horses = GameObject.FindGameObjectsWithTag("Horse"); // Trouver tous les cubes avec le tag "Cube"
-        int numHorses = horses.Length;
-        float angleIncrement = 360f / numHorses;
-        for (int i = 0; i < numHorses; i++)
-        {
-            float angle = i * angleIncrement;
-            Vector3 offset = Quaternion.Euler(0f, angle, 0f) * Vector3.forward * radius;
-            horses[i].transform.position = centerObject.transform.position + offset;
-        }
-    }
+    
 
     //Fonction appeler pour gerer les themes : Les sons et Animation/model3D
     void VerifTheme(){
