@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
 
     //TON SCRIPT ICIIIII!!!
-    void JeTourne()
+    void ChangementRapidite()
     {
         int numHorses = horses.Length;
         for (int i = 0; i < numHorses; i++)
@@ -44,18 +44,7 @@ public class GameManager : MonoBehaviour
             horses[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
-    void FindAndDistributeHorses()
-    {
-        horses = GameObject.FindGameObjectsWithTag("Horse"); // Trouver tous les cubes avec le tag "Cube"
-        int numHorses = horses.Length;
-        float angleIncrement = 360f / numHorses;
-        for (int i = 0; i < numHorses; i++)
-        {
-            float angle = i * angleIncrement;
-            Vector3 offset = Quaternion.Euler(0f, angle, 0f) * Vector3.forward * radius;
-            horses[i].transform.position = centerObject.transform.position + offset;
-        }
-    }
+    
 
     //Fonction appeler pour gerer les themes : Les sons et Animation/model3D
     void VerifTheme(){
