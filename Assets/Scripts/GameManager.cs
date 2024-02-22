@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ActivateMultiMonitors();
-        FindAndDistributeHorses();
+        
 
 
     }
@@ -30,21 +29,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //si la variable est vrai, part l'animation (POUR TOI ANTHONY!)
-            JeTourne();
         
-
 
         VerifTheme(); // Fonction Appeler pour verifier le theme actif
     }
 
-    void ActivateMultiMonitors()
-    {
-        for (int i = 1; i < Display.displays.Length; i++)
-        {
-            Display.displays[i].Activate();
-        }
-    }
 
     //TON SCRIPT ICIIIII!!!
     void JeTourne()
