@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: drap.degrader
-  m_Shader: {fileID: 4800000, guid: 061bfce32970e2e4799769434794398c, type: 3}
-  m_Parent: {fileID: 2100000, guid: 94e0921eafe35e2499004078c7f54d6c, type: 2}
+  m_Shader: {fileID: -6465566751694194690, guid: 971e3cb6add285349a1026feedf1aa47,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 0b36231cf82b54d45a8fc0dbb1fa6b86, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
