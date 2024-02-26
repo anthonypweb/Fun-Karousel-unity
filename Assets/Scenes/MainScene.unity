@@ -828,9 +828,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
         type: 3}
+      propertyPath: audioSource2D
+      value: 
+      objectReference: {fileID: 1032004360}
+    - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
+        type: 3}
       propertyPath: rotationSpeed
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
+        type: 3}
+      propertyPath: animatorCaroussel
+      value: 
+      objectReference: {fileID: 562395314}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1653,17 +1663,22 @@ PrefabInstance:
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: maxPlageFinale
-      value: 45
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: minPlageFinale
-      value: 15
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: maxPlageInitiale
       value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
+        type: 3}
+      propertyPath: minPlageInitiale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6303612292652254539, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
@@ -1733,7 +1748,7 @@ PrefabInstance:
     - target: {fileID: 6303612292663454125, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

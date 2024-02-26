@@ -7,13 +7,13 @@ public class MyMessageListener : MonoBehaviour
     [SerializeField] private GameManager gameManager;
 
     // Définir les bornes de la plage initiale et finale
-      [SerializeField] private int minPlageInitiale = 0;
-     [SerializeField]  private int maxPlageInitiale = 450;
-      [SerializeField] private int minPlageFinale = 5;
-       [SerializeField] private int maxPlageFinale = 60;
+    [SerializeField] private float minPlageInitiale = 0f;
+    [SerializeField]  private float maxPlageInitiale = 450f;
+    [SerializeField] private float minPlageFinale = 0.1f;
+    [SerializeField] private float maxPlageFinale = 1f;
 
     // Fonction pour convertir la valeur de la plage initiale à la plage finale
-    void ConvertirPlage(int valeur)
+    void ConvertirPlage(float valeur)
     {
        
             // Appliquer une règle de trois
@@ -49,12 +49,10 @@ public class MyMessageListener : MonoBehaviour
     // Maintenant, vous pouvez utiliser ces valeurs comme vous le souhaitez, par exemple les envoyer à votre GameManager
     // gameManager.boutonPresse = boutonPresse;
     // gameManager.valeurRoulette = valeurRoulette;
-    int valeurRoulette = int.Parse(parties[1]);
+    float valeurRoulette = float.Parse(parties[1]);
     ConvertirPlage(valeurRoulette);  
 
-    // Faites ce que vous voulez avec les valeurs séparées
-    //Debug.Log("Bouton pressé : " + boutonPresse);
-    //Debug.Log("Valeur de la roulette : " + valeurRoulette);
+    
 
     
 }

@@ -8,14 +8,13 @@ public class GameManager : MonoBehaviour
     public bool jeTourne = false;
     public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
     public bool triggerChangementTheme = false;
-
-    [SerializeField] public float radius = 5f; // Rayon de distribution des cheveaux
-    [SerializeField] public int rotationSpeed = 1; // Vitesse de rotation des cheveaux
+    public float rotationSpeed = 1f; // Vitesse de rotation des cheveaux
 
     
     [SerializeField] private AudioManager audioManager; //Variable contenant l'AudioManager
+    [SerializeField] private AudioSource audioSource2D; //Variable contenant l'AudioManager
 
-
+    [SerializeField] private Animator animatorCaroussel;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-
+        ChangementRapidite();
         VerifTheme(); // Fonction Appeler pour verifier le theme actif
     }
 
@@ -36,7 +35,17 @@ public class GameManager : MonoBehaviour
     //TON SCRIPT ICIIIII!!!
     void ChangementRapidite()
     {
-        
+        // Vérifiez si votre Animator a été correctement assigné
+        if (animatorCaroussel != null)
+        {
+            // Utilisez votre variable rotationSpeed pour ajuster la vitesse de l'animation
+            animatorCaroussel.speed = rotationSpeed;
+            audioSource2D.pitch = rotationSpeed;
+        }
+        else
+        {
+            Debug.LogError("Animator non assigné. Assurez-vous d'attacher le composant Animator à votre GameObject.");
+        }
     }
     
 
