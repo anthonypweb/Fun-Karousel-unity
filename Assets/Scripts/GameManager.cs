@@ -9,12 +9,10 @@ public class GameManager : MonoBehaviour
     public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
     public bool triggerChangementTheme = false;
 
-    [SerializeField] private GameObject centerObject; // Objet autour duquel les cheveaux doivent tourner
     [SerializeField] public float radius = 5f; // Rayon de distribution des cheveaux
     [SerializeField] public int rotationSpeed = 1; // Vitesse de rotation des cheveaux
 
-    private GameObject[] horses; // Tableau pour stocker les cheveaux
-
+    
     [SerializeField] private AudioManager audioManager; //Variable contenant l'AudioManager
 
 
@@ -38,11 +36,7 @@ public class GameManager : MonoBehaviour
     //TON SCRIPT ICIIIII!!!
     void ChangementRapidite()
     {
-        int numHorses = horses.Length;
-        for (int i = 0; i < numHorses; i++)
-        {
-            horses[i].transform.RotateAround(centerObject.transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
-        }
+        
     }
     
 
