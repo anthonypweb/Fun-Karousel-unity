@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
     //variables accessible publiquement pour être modifié à l'externe
-    public bool jeTourne = false;
+    
     public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
     public bool triggerChangementTheme = false;
     public float rotationSpeed = 1f; // Vitesse de rotation des cheveaux
+    public bool jeTourne = false;
 
-    
     [SerializeField] private AudioManager audioManager; //Variable contenant l'AudioManager
     [SerializeField] private AudioSource audioSource2D; //Variable contenant l'AudioManager
 
     [SerializeField] private Animator animatorCaroussel;
+
+    [SerializeField] private VideoPlayer bgSkybox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour
             // Utilisez votre variable rotationSpeed pour ajuster la vitesse de l'animation
             animatorCaroussel.speed = rotationSpeed;
             audioSource2D.pitch = rotationSpeed;
+            bgSkybox.playbackSpeed = rotationSpeed;
         }
         else
         {

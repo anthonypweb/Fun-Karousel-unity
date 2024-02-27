@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 202925540}
   - component: {fileID: 202925539}
   m_Layer: 0
-  m_Name: BG - Unity
+  m_Name: BgUnity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,6 +1034,11 @@ PrefabInstance:
       propertyPath: radius
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
+        type: 3}
+      propertyPath: bgSkybox
+      value: 
+      objectReference: {fileID: 202925539}
     - target: {fileID: 7694718177795175109, guid: 54f864f0f3162ba46a6c519fc2578d9a,
         type: 3}
       propertyPath: jeTourne
