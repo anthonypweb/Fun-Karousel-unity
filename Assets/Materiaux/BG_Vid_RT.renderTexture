@@ -6,7 +6,7 @@ RenderTexture:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Vid2_RT_Skybox
+  m_Name: BG_Vid_RT
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
