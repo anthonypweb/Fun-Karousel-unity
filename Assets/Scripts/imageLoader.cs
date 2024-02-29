@@ -294,7 +294,6 @@ using System.Threading.Tasks;
 public class ImageLoader : MonoBehaviour
 {
     public string imageFolderPath; // Chemin du dossier contenant les images
-    public int maxTextures; // Nombre maximal de textures autorisées
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
@@ -303,7 +302,6 @@ public class ImageLoader : MonoBehaviour
     {
         // Récupérer tous les objets avec le tag "TemplateFace" au démarrage
         templateFaces = GameObject.FindGameObjectsWithTag("TemplateFaces");
-        maxTextures= templateFaces.Length;
         // Lancer la coroutine pour charger les images de manière asynchrone
         StartCoroutine(LoadImagesCoroutine());
     }
@@ -333,12 +331,6 @@ public class ImageLoader : MonoBehaviour
             if (textureList.Count > templateFaces.Length)
             {
                 RemoveOldestTexture();
-            }
-
-            // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
-            if (textureList.Count > maxTextures)
-            {
-                RemoveOldestFile();
             }
 
             // Attendre un frame avant de charger la prochaine image
@@ -396,26 +388,6 @@ public class ImageLoader : MonoBehaviour
             Texture2D textureToRemove = textureList[indexToRemove].Item1;
             Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
             textureList.RemoveAt(indexToRemove);
-        }
-    }
-
-    void RemoveOldestFile()
-    {
-        // Recherche du fichier associé à la texture la plus ancienne dans la liste
-        DateTime oldestDate = DateTime.MaxValue;
-        int indexToRemove = -1;
-        for (int i = 0; i < textureList.Count; i++)
-        {
-            if (textureList[i].Item2 < oldestDate)
-            {
-                oldestDate = textureList[i].Item2;
-                indexToRemove = i;
-            }
-        }
-
-        // Suppression du fichier associé à la texture la plus ancienne
-        if (indexToRemove >= 0)
-        {
             string filePathToRemove = textureList[indexToRemove].Item3;
             File.Delete(filePathToRemove);
         }
