@@ -537,29 +537,47 @@ public class ImageLoader : MonoBehaviour
     }
 
     void RemoveOldestFile()
+{
+    // Recherche du fichier associé à la texture la plus ancienne dans la liste
+    DateTime oldestDate = DateTime.MaxValue;
+    int indexToRemove = -1;
+    for (int i = 0; i < textureList.Count; i++)
     {
-        // Recherche du fichier associé à la texture la plus ancienne dans la liste
-        DateTime oldestDate = DateTime.MaxValue;
-        int indexToRemove = -1;
-        for (int i = 0; i < textureList.Count; i++)
+        if (textureList[i].Item2 < oldestDate)
         {
-            if (textureList[i].Item2 < oldestDate)
+            oldestDate = textureList[i].Item2;
+            indexToRemove = i;
+        }
+    }
+
+    // Suppression du fichier associé à la texture la plus ancienne
+    if (indexToRemove >= 0)
+    {
+        string filePathToRemove = textureList[indexToRemove].Item3;
+
+        // Vérifier si la texture à supprimer n'est pas associée à un GameObject sur la scène
+        bool isTextureInUse = false;
+        foreach (GameObject templateFace in templateFaces)
+        {
+            Renderer cubeRenderer = templateFace.GetComponent<Renderer>();
+            if (cubeRenderer.material.mainTexture == textureList[indexToRemove].Item1)
             {
-                oldestDate = textureList[i].Item2;
-                indexToRemove = i;
+                isTextureInUse = true;
+                break;
             }
         }
 
-        // Suppression du fichier associé à la texture la plus ancienne
-        if (indexToRemove >= 0)
+        // Supprimer le fichier uniquement si la texture n'est pas associée à un GameObject sur la scène
+        if (!isTextureInUse)
         {
-            string filePathToRemove = textureList[indexToRemove].Item3;
             File.Delete(filePathToRemove);
-
-            // Suppression de la texture de la liste
-            textureList.RemoveAt(indexToRemove);
         }
+
+        // Suppression de la texture de la liste
+        textureList.RemoveAt(indexToRemove);
     }
+}
+
 }
 
 
