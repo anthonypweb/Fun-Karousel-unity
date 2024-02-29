@@ -434,6 +434,7 @@ public class ImageLoader : MonoBehaviour
     public int maxTextures = 10; // Nombre maximal de textures autorisées
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
+    private Dictionary<Texture2D, GameObject> textureToGameObjectMap = new Dictionary<Texture2D, GameObject>(); // Associer chaque texture à un GameObject
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
 
     void Start()
@@ -472,7 +473,7 @@ public class ImageLoader : MonoBehaviour
                 RemoveOldestTexture();
             }
 
-            // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
+            // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé et retirer la texture de la liste
             if (textureList.Count > maxTextures)
             {
                 RemoveOldestFile();
@@ -531,54 +532,50 @@ public class ImageLoader : MonoBehaviour
         if (indexToRemove >= 0)
         {
             Texture2D textureToRemove = textureList[indexToRemove].Item1;
+
+            // Supprimer l'association entre la texture et le GameObject
+            if (textureToGameObjectMap.ContainsKey(textureToRemove))
+            {
+                textureToGameObjectMap.Remove(textureToRemove);
+            }
+
             Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
             textureList.RemoveAt(indexToRemove);
         }
     }
 
     void RemoveOldestFile()
-{
-    // Recherche du fichier associé à la texture la plus ancienne dans la liste
-    DateTime oldestDate = DateTime.MaxValue;
-    int indexToRemove = -1;
-    for (int i = 0; i < textureList.Count; i++)
     {
-        if (textureList[i].Item2 < oldestDate)
+        // Recherche de la texture la plus ancienne dans la liste
+        DateTime oldestDate = DateTime.MaxValue;
+        int indexToRemove = -1;
+        for (int i = 0; i < textureList.Count; i++)
         {
-            oldestDate = textureList[i].Item2;
-            indexToRemove = i;
-        }
-    }
-
-    // Suppression du fichier associé à la texture la plus ancienne
-    if (indexToRemove >= 0)
-    {
-        string filePathToRemove = textureList[indexToRemove].Item3;
-
-        // Vérifier si la texture à supprimer n'est pas associée à un GameObject sur la scène
-        bool isTextureInUse = false;
-        foreach (GameObject templateFace in templateFaces)
-        {
-            Renderer cubeRenderer = templateFace.GetComponent<Renderer>();
-            if (cubeRenderer.material.mainTexture == textureList[indexToRemove].Item1)
+            if (textureList[i].Item2 < oldestDate)
             {
-                isTextureInUse = true;
-                break;
+                oldestDate = textureList[i].Item2;
+                indexToRemove = i;
             }
         }
 
-        // Supprimer le fichier uniquement si la texture n'est pas associée à un GameObject sur la scène
-        if (!isTextureInUse)
+        // Suppression du fichier associé à la texture la plus ancienne
+        if (indexToRemove >= 0)
         {
-            File.Delete(filePathToRemove);
-        }
+            string filePathToRemove = textureList[indexToRemove].Item3;
 
-        // Suppression de la texture de la liste
-        textureList.RemoveAt(indexToRemove);
+            // Vérifier si la texture à supprimer n'est pas associée à un GameObject sur la scène
+            Texture2D textureToRemove = textureList[indexToRemove].Item1;
+            if (textureToGameObjectMap.ContainsKey(textureToRemove))
+            {
+                File.Delete(filePathToRemove);
+
+                // Suppression de la texture de la liste
+                textureList.RemoveAt(indexToRemove);
+            }
+        }
     }
 }
 
-}
 
 
 
