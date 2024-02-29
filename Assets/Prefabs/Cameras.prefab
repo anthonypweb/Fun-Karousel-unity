@@ -32,7 +32,7 @@ Transform:
   - {fileID: 7534882558480651868}
   - {fileID: 623002982866131181}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644827865080435185
 GameObject:
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 623002982866131181}
-  - component: {fileID: 5425489642238593442}
+  - component: {fileID: 3027410603899658395}
   m_Layer: 0
   m_Name: NDI
   m_TagString: Untagged
@@ -340,7 +340,7 @@ Transform:
   m_Father: {fileID: 3005262638958176175}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5425489642238593442
+--- !u!114 &3027410603899658395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
