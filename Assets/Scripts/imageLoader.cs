@@ -303,7 +303,7 @@ public class ImageLoader : MonoBehaviour
     {
         // Récupérer tous les objets avec le tag "TemplateFace" au démarrage
         templateFaces = GameObject.FindGameObjectsWithTag("TemplateFaces");
-        maxTextures= templateFaces.Length();
+        maxTextures= templateFaces.Length;
         // Lancer la coroutine pour charger les images de manière asynchrone
         StartCoroutine(LoadImagesCoroutine());
     }
