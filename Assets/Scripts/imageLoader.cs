@@ -437,7 +437,7 @@ public class ImageLoader : MonoBehaviour
             textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
 
             // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
-            if (textureList.Count > templateFaces.Length)
+            if (currentImages.Length > templateFaces.Length)
             {
                 RemoveOldestTextures();
             }
