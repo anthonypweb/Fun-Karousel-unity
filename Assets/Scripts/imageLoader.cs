@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class ImageLoader : MonoBehaviour
 {
     public string imageFolderPath; // Chemin du dossier contenant les images
-    public int maxTextures = 10; // Nombre maximal de textures autorisées
+    public int maxTextures = 14; // Nombre maximal de textures autorisées
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
@@ -90,7 +90,7 @@ public class ImageLoader : MonoBehaviour
         }
     }
 
-    /*void RemoveOldestTexture()
+    void RemoveOldestTexture()
     {
         // Recherche de la texture la plus ancienne dans la liste
         DateTime oldestDate = DateTime.MaxValue;
@@ -111,40 +111,10 @@ public class ImageLoader : MonoBehaviour
             Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
             textureList.RemoveAt(indexToRemove);
         }
-    }*/
-    void RemoveOldestTexture()
-{
-    // Recherche de la texture la plus ancienne dans la liste
-    DateTime oldestDate = DateTime.MaxValue;
-    int indexToRemove = -1;
-    for (int i = 0; i < textureList.Count; i++)
-    {
-        if (textureList[i].Item2 < oldestDate)
-        {
-            oldestDate = textureList[i].Item2;
-            indexToRemove = i;
-        }
     }
 
-    // Suppression de la texture la plus ancienne de la liste
-    if (indexToRemove >= 0)
-    {
-        Texture2D textureToRemove = textureList[indexToRemove].Item1;
-        Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
-        textureList.RemoveAt(indexToRemove);
-    }
 
-    // Si le nombre de textures est inférieur au nombre de templateFaces, ajouter une nouvelle texture
-    while (textureList.Count < templateFaces.Length)
-    {
-        // Ajoutez une texture "dummy" (vous pouvez la remplacer par une texture par défaut ou vide)
-        Texture2D dummyTexture = new Texture2D(2, 2);
-        textureList.Add((dummyTexture, DateTime.Now, ""));
-    }
-}
-
-
-    /*void RemoveOldestFile()
+    void RemoveOldestFile()
     {
         // Recherche du fichier associé à la texture la plus ancienne dans la liste
         DateTime oldestDate = DateTime.MaxValue;
@@ -164,37 +134,7 @@ public class ImageLoader : MonoBehaviour
             string filePathToRemove = textureList[indexToRemove].Item3;
             File.Delete(filePathToRemove);
         }
-    }*/
-    void RemoveOldestFile()
-{
-    // Recherche du fichier associé à la texture la plus ancienne dans la liste
-    DateTime oldestDate = DateTime.MaxValue;
-    int indexToRemove = -1;
-    for (int i = 0; i < textureList.Count; i++)
-    {
-        if (textureList[i].Item2 < oldestDate)
-        {
-            oldestDate = textureList[i].Item2;
-            indexToRemove = i;
-        }
     }
-
-    // Suppression du fichier associé à la texture la plus ancienne
-    if (indexToRemove >= 0)
-    {
-        string filePathToRemove = textureList[indexToRemove].Item3;
-        File.Delete(filePathToRemove);
-        textureList.RemoveAt(indexToRemove);
-    }
-
-    // Si le nombre de textures est inférieur au nombre de templateFaces, ajouter une nouvelle texture
-    while (textureList.Count < templateFaces.Length)
-    {
-        // Ajoutez une texture "dummy" (vous pouvez la remplacer par une texture par défaut ou vide)
-        Texture2D dummyTexture = new Texture2D(2, 2);
-        textureList.Add((dummyTexture, DateTime.Now, ""));
-    }
-}
 }
 
 
