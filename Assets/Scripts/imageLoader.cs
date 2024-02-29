@@ -8,7 +8,7 @@ public class ImageLoader : MonoBehaviour
     public string imageFolderPath; // Chemin du dossier contenant les images
 
     private List<(Texture2D, DateTime)> textureList = new List<(Texture2D, DateTime)>(); // Liste des textures chargées avec leur date d'ajout
-    [SerializeField] private GameObject[] templateFaces; // Tableau de template pour mettre les faces
+    private GameObject[] templateFaces; // Tableau de template pour mettre les faces
 
     void Start()
     {
@@ -18,41 +18,6 @@ public class ImageLoader : MonoBehaviour
 
     void Update()
     {
-       /* // Vérifier s'il y a de nouvelles images à chaque mise à jour
-        string[] currentImages = Directory.GetFiles(imageFolderPath, "*.png");
-        foreach (string imagePath in currentImages)
-        {
-            // Charger la nouvelle image depuis le fichier
-            byte[] fileData = File.ReadAllBytes(imagePath);
-            Texture2D texture = new Texture2D(2, 2);
-            texture.LoadImage(fileData);
-
-            // Ajouter la texture à la liste avec sa date d'ajout
-            textureList.Add((texture, DateTime.Now));
-
-            // Afficher le nom de la nouvelle image
-            //Debug.Log("Nouvelle image détectée : " + Path.GetFileName(imagePath));
-
-            // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
-            if (textureList.Count > templateFaces.Length)
-            {
-                RemoveOldestTexture();
-            }
-        }
-
-        // Mettre à jour les textures des templates
-        for (int i = 0; i < templateFaces.Length; i++)
-        {
-            // S'assurer qu'il y a une texture associée au masque
-            if (i < textureList.Count)
-            {
-                // Récupérer le renderer du masque
-                Renderer cubeRenderer = templateFaces[i].GetComponent<Renderer>();
-
-                // Assigner la texture au masque
-                cubeRenderer.material.mainTexture = textureList[i].Item1;
-            }
-        }*/
     // Vérifier s'il y a de nouvelles images à chaque mise à jour
     string[] currentImages = Directory.GetFiles(imageFolderPath, "*.png");
     foreach (string imagePath in currentImages)
@@ -65,8 +30,6 @@ public class ImageLoader : MonoBehaviour
         // Ajouter la texture à la liste avec sa date d'ajout
         textureList.Add((texture, DateTime.Now));
 
-        // Afficher le nom de la nouvelle image
-        //Debug.Log("Nouvelle image détectée : " + Path.GetFileName(imagePath));
 
         // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
         if (textureList.Count > templateFaces.Length)
