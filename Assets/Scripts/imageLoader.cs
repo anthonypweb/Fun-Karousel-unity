@@ -478,33 +478,34 @@ public class ImageLoader : MonoBehaviour
     }
 
     void RemoveOldestTextures()
-    {
-        // Supprimer toutes les textures excédentaires
+{
+    // Supprimer toutes les textures excédentaires
         while (textureList.Count > templateFaces.Length)
         {
-            // Recherche de la texture la plus ancienne dans la liste
-            DateTime oldestDate = DateTime.MaxValue;
-            int indexToRemove = -1;
-            for (int i = 0; i < textureList.Count; i++)
+        // Recherche de la texture la plus ancienne dans la liste
+        DateTime oldestDate = DateTime.MaxValue;
+        int indexToRemove = -1;
+        for (int i = 0; i < textureList.Count; i++)
             {
-                if (textureList[i].Item2 < oldestDate)
+            if (textureList[i].Item2 < oldestDate)
                 {
-                    oldestDate = textureList[i].Item2;
-                    indexToRemove = i;
+                oldestDate = textureList[i].Item2;
+                indexToRemove = i;
                 }
             }
 
-            // Suppression de la texture la plus ancienne de la liste
-            if (indexToRemove >= 0)
+        // Suppression de la texture la plus ancienne de la liste
+        if (indexToRemove >= 0)
             {
-                Texture2D textureToRemove = textureList[indexToRemove].Item1;
-                Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
-                textureList.RemoveAt(indexToRemove);
-                string filePathToRemove = textureList[indexToRemove].Item3;
-                File.Delete(filePathToRemove);
+            Texture2D textureToRemove = textureList[indexToRemove].Item1;
+            Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
+            textureList.RemoveAt(indexToRemove);
+            string filePathToRemove = textureList[indexToRemove].Item3;
+            File.Delete(filePathToRemove);
             }
         }
     }
+
 }
 
 
