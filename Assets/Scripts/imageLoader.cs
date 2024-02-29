@@ -294,7 +294,7 @@ using System.Threading.Tasks;
 public class ImageLoader : MonoBehaviour
 {
     public string imageFolderPath; // Chemin du dossier contenant les images
-    public int maxTextures = 10; // Nombre maximal de textures autorisées
+    public int maxTextures; // Nombre maximal de textures autorisées
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
@@ -303,7 +303,7 @@ public class ImageLoader : MonoBehaviour
     {
         // Récupérer tous les objets avec le tag "TemplateFace" au démarrage
         templateFaces = GameObject.FindGameObjectsWithTag("TemplateFaces");
-
+        maxTextures= templateFaces.Length();
         // Lancer la coroutine pour charger les images de manière asynchrone
         StartCoroutine(LoadImagesCoroutine());
     }
@@ -330,13 +330,13 @@ public class ImageLoader : MonoBehaviour
             textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
 
             // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
-            if (textureList.Count+1 > templateFaces.Length)
+            if (textureList.Count > templateFaces.Length)
             {
                 RemoveOldestTexture();
             }
 
             // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
-            if (textureList.Count+1 > maxTextures)
+            if (textureList.Count > maxTextures)
             {
                 RemoveOldestFile();
             }
