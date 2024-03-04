@@ -478,6 +478,12 @@ MonoBehaviour:
   musiquesCaroussel:
   - {fileID: 0}
   - {fileID: 8300000, guid: 35fb346a8aab56444a657ac3c3a18bd4, type: 3}
+  audiosPhoto:
+  - {fileID: 8300000, guid: bbdb537ab69c5de4790ef8333542b080, type: 3}
+  - {fileID: 8300000, guid: 8cdb4d430c5da1a4d95f98bdf8168267, type: 3}
+  - {fileID: 8300000, guid: 1f46cfa5c56cc9141ad017ec31624c27, type: 3}
+  - {fileID: 8300000, guid: 6e78dfd3e79bdc64a9abf65ae3ae598b, type: 3}
+  - {fileID: 8300000, guid: 5c18d42e02810fe499498d077bab7683, type: 3}
   fadeDuration: 1
 --- !u!1 &280875534
 GameObject:

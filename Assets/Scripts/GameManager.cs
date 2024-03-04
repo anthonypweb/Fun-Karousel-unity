@@ -64,5 +64,8 @@ public class GameManager : MonoBehaviour
         }
         
     }
+    public void PlaySfxPhoto(){
+        audioManager.SonPhoto();
+    }
 
 }

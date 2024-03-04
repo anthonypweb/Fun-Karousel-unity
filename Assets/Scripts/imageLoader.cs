@@ -138,9 +138,8 @@ public class ImageLoader : MonoBehaviour
     }
     void OnNewImageDetected(Texture2D newTexture)
 {
-    // Votre logique ici pour traiter la nouvelle image
-    Debug.Log("Nouvelle image détectée !");
     // Vous pouvez appeler d'autres fonctions ou effectuer des actions spécifiques ici
+    gameManager.PlaySfxPhoto();
 }
 
 }
