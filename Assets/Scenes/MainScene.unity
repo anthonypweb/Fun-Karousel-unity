@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.0024756494, b: 0.0058200844, a: 1}
+  m_IndirectSpecularColor: {r: 0.28318256, g: 0.008643334, b: 0.29800013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -477,7 +477,7 @@ MonoBehaviour:
   audioSource2D: {fileID: 1032004360}
   musiquesCaroussel:
   - {fileID: 0}
-  - {fileID: 8300000, guid: 433c5390483a74e43a50d690bf839ec3, type: 3}
+  - {fileID: 8300000, guid: 35fb346a8aab56444a657ac3c3a18bd4, type: 3}
   fadeDuration: 1
 --- !u!1 &280875534
 GameObject:
@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageFolderPath: Assets/photos
+  maxTextures: 14
 --- !u!4 &680991110
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,7 +1648,7 @@ GameObject:
   - component: {fileID: 1032004359}
   - component: {fileID: 1032004360}
   m_Layer: 0
-  m_Name: AudioMusiqueLoop
+  m_Name: AudioSourceMusiqueLoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
