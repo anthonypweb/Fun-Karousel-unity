@@ -12,7 +12,7 @@ public class ImageLoader : MonoBehaviour
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
-
+    [SerializeField] private GameManager gameManager;
     void Start()
     {
         // Récupérer tous les objets avec le tag "TemplateFace" au démarrage
@@ -54,7 +54,8 @@ public class ImageLoader : MonoBehaviour
             {
                 RemoveOldestFile();
             }
-
+            // Appeler la fonction uniquement lorsque la nouvelle image est détectée
+            OnNewImageDetected(texture);
             // Attendre un frame avant de charger la prochaine image
             await Task.Delay(1);
         }
@@ -135,7 +136,15 @@ public class ImageLoader : MonoBehaviour
             File.Delete(filePathToRemove);
         }
     }
+    void OnNewImageDetected(Texture2D newTexture)
+{
+    // Votre logique ici pour traiter la nouvelle image
+    Debug.Log("Nouvelle image détectée !");
+    // Vous pouvez appeler d'autres fonctions ou effectuer des actions spécifiques ici
 }
+
+}
+
 
 
 

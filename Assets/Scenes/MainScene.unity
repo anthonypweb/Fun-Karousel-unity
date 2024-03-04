@@ -903,6 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageFolderPath: Assets/photos
   maxTextures: 14
+  gameManager: {fileID: 423728200}
 --- !u!4 &680991110
 Transform:
   m_ObjectHideFlags: 0
