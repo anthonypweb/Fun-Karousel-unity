@@ -2374,7 +2374,7 @@ PrefabInstance:
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: minPlageInitiale
-      value: 955
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6303612292652254539, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
