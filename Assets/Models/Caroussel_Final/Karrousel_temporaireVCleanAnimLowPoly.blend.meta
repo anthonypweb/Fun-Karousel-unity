@@ -12,8 +12,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Blue Light
+    second: {fileID: 2100000, guid: c4b493a9eab09884295652bd5583dbe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boule Micro
+    second: {fileID: 2100000, guid: 0265417123fc70c43b4c3f50c1169462, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bronze
+    second: {fileID: 2100000, guid: 152465de7eec9374c8ddd03711f7274f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ceiling with lights.002
     second: {fileID: 2100000, guid: c77302e1be750eb41a5b0617d32b1d92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Centre Vinyl
+    second: {fileID: 2100000, guid: 872dad73cc4383141aa3fddf8868088f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -24,6 +44,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Cheval Metal
     second: {fileID: 2100000, guid: 7a6a9dbca882b154da39d4e4c925ae48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drap
+    second: {fileID: 2100000, guid: b60135ff701bc85458a144624b9e794e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gris Fonce
+    second: {fileID: 2100000, guid: 4f4028f43d533bc4cbcbc81a55a1512a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Guitare
+    second: {fileID: 2100000, guid: c67a08fa8814b5944946362d58b27b2a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -87,6 +122,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Metal Micro
+    second: {fileID: 2100000, guid: 6deeb3a101686cc4497ec43cd356ec69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: NeoBody
     second: {fileID: 2100000, guid: 95652ddd5074ab34e86aee5618fd1e68, type: 2}
   - first:
@@ -94,6 +134,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Neon Sci Fi Pannel
     second: {fileID: 2100000, guid: 151758a3a3a36314697cb9625df158f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon Vinyl
+    second: {fileID: 2100000, guid: edd2d7ef7f792ac4886661b0f8bb2eea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -107,6 +152,31 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Perso 1
+    second: {fileID: 2100000, guid: c77302e1be750eb41a5b0617d32b1d92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Perso 2
+    second: {fileID: 2100000, guid: 151758a3a3a36314697cb9625df158f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Perso 3
+    second: {fileID: 2100000, guid: 0ee36f923dc9b594f9a65d8a0fc2f403, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Perso 4
+    second: {fileID: 2100000, guid: 65cf0370c5605ac4e90251bd9e06659f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rose
+    second: {fileID: 2100000, guid: 4fb44ad6f38c1bf42bd69c58ef5d17af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Rose Cheval
     second: {fileID: 2100000, guid: 4fb44ad6f38c1bf42bd69c58ef5d17af, type: 2}
   - first:
@@ -114,6 +184,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Rouge
     second: {fileID: 2100000, guid: c67a08fa8814b5944946362d58b27b2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rouge Vin
+    second: {fileID: 2100000, guid: f648dd0185777914bbea32bdf68cf1e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker Test
+    second: {fileID: 2100000, guid: d6bc8b81c4a36be43a76c5a56b755923, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Structure
+    second: {fileID: 2100000, guid: 9d74f3bafda7bbd4b91ec55cd1fe66ee, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
