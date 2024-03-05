@@ -2369,17 +2369,17 @@ PrefabInstance:
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: maxPlageInitiale
-      value: 750
+      value: 1023
       objectReference: {fileID: 0}
     - target: {fileID: 4604168630929153359, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: minPlageInitiale
-      value: 0
+      value: 955
       objectReference: {fileID: 0}
     - target: {fileID: 6303612292652254539, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: portName
-      value: COM4
+      value: COM3
       objectReference: {fileID: 0}
     - target: {fileID: 6303612292663243361, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
@@ -2444,7 +2444,7 @@ PrefabInstance:
     - target: {fileID: 6303612292663454125, guid: 8b640900826506544bedbfa0e036ece5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

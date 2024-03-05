@@ -16,8 +16,12 @@ public class MyMessageListener : MonoBehaviour
     void ConvertirPlage(float valeur)
     {
        
-            // Appliquer une règle de trois
-            gameManager.rotationSpeed = minPlageFinale + (valeur - minPlageInitiale) * (maxPlageFinale - minPlageFinale) / (maxPlageInitiale - minPlageInitiale);
+        // Appliquer une règle de trois avec les bornes spécifiées
+        float valeurConvertie = minPlageFinale + (valeur - minPlageInitiale) * (maxPlageFinale - minPlageFinale) / (maxPlageInitiale - minPlageInitiale);
+
+
+        // Appliquer une règle de trois
+        gameManager.rotationSpeed = valeurConvertie;
         
         
     }
@@ -34,8 +38,8 @@ public class MyMessageListener : MonoBehaviour
     }
 
     // Invoked when a line of data is received from the serial device.
- void OnMessageArrived(string msg)
-{
+    void OnMessageArrived(string msg)
+    {
     // Diviser la chaîne en deux parties en utilisant la virgule comme délimiteur
     string[] parties = msg.Split(',');
      
@@ -54,8 +58,7 @@ public class MyMessageListener : MonoBehaviour
 
     
 
-    
-}
+    }
 
     // Invoked when a connect/disconnect event occurs. The parameter 'success'
     // will be 'true' upon connection, and 'false' upon disconnection or
