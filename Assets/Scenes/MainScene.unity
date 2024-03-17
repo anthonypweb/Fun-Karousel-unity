@@ -257,6 +257,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9132648785178615426, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: -8679921383154817045, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_RootOrder
@@ -332,11 +337,36 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: -7638701266766344449, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: -7636759346274635894, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: -7140763773497420348, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: -6297905273489015339, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: -5108348957103462728, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: -4154828783350939494, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: -3731578629011933422, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
@@ -362,6 +392,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 297373833261535893, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: 873613389716071186, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
@@ -372,11 +407,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FK_carrousel-optimized_v6
       objectReference: {fileID: 0}
+    - target: {fileID: 1107348200777954090, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: 2375776247916407603, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 3285616809622881469, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: 3444207458470532163, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
@@ -402,16 +447,51 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 6459758554676529996, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: 6655911983959806824, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 6840518473870133540, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: 7201432922342878941, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: 7600630523832425572, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: 8063065871860544826, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     - target: {fileID: 8853123866908833867, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 9015102984559570669, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
+    - target: {fileID: 9186954284639567415, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bf04c37bc12206408a4629f43ede5d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
