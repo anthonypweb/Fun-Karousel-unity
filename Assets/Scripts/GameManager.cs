@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     //variables accessible publiquement pour être modifié à l'externe
     
-    public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
-    public bool triggerChangementTheme = false;
+    //public bool theme = true; //valeur TRUE = Cyber, FALSE = Retro
+    //public bool triggerChangementTheme = false;
     public float rotationSpeed = 1f; // Vitesse de rotation des cheveaux
     public bool jeTourne = false;
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         
         ChangementRapidite();
-        VerifTheme(); // Fonction Appeler pour verifier le theme actif
+        //VerifTheme(); // Fonction Appeler pour verifier le theme actif
     }
 
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     
 
     //Fonction appeler pour gerer les themes : Les sons et Animation/model3D
-    void VerifTheme(){
+    /*void VerifTheme(){
         if(triggerChangementTheme) //si changement theme sur la switch
         {
             theme = !theme;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             triggerChangementTheme = !triggerChangementTheme;
         }
         
-    }
+    }*/
     public void PlaySfxPhoto(){
         audioManager.SonPhoto();
     }

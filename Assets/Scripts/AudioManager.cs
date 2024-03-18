@@ -8,13 +8,13 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioSource audioSource2D;
-    [SerializeField] private AudioClip[] musiquesCaroussel;
+    [SerializeField] private AudioClip musiqueCaroussel;
 
     [SerializeField] private AudioClip[] audiosPhoto;
 
-    [SerializeField] private float fadeDuration = 1.0f; // Durée du fondu en secondes
+    //[SerializeField] private float fadeDuration = 1.0f; // Durée du fondu en secondes
     void Start(){
-        audioSource2D.clip = musiquesCaroussel[Convert.ToInt32(gameManager.theme)];
+        audioSource2D.clip = musiqueCaroussel;
         audioSource2D.loop = true; // Activer la boucle
         audioSource2D.Play();
     }
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     }
 
     //REVOIR LA LOGIQUE POUR PLUS OPTIMAL
-    public IEnumerator ChangementTheme(){
+    /*public IEnumerator ChangementTheme(){
         float timer = 0f;
         float startVolume = audioSource2D.volume;
 
@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
             audioSource2D.volume = Mathf.Lerp(0f, startVolume, timer / fadeDuration);
             yield return null;
         }
-    }
+    }*/
     public void SonPhoto(){
         int randomNumb = UnityEngine.Random.Range(0, audiosPhoto.Length);
         audioSource2D.PlayOneShot(audiosPhoto[randomNumb]);
