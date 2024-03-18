@@ -18,11 +18,7 @@ public class AudioManager : MonoBehaviour
         audioSource2D.loop = true; // Activer la boucle
         audioSource2D.Play();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 
     public void SonPhoto(){
         int randomNumb = UnityEngine.Random.Range(0, audiosPhoto.Length);

@@ -16,14 +16,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private VideoPlayer bgSkybox;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-
-
-    }
-
     // Update is called once per frame
     void Update()
     {
