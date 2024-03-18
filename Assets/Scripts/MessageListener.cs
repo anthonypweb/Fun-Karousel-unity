@@ -42,14 +42,6 @@ public class MyMessageListener : MonoBehaviour
     {
     // Diviser la chaîne en deux parties en utilisant la virgule comme délimiteur
     string[] parties = msg.Split(',');
-     
-    // Vérifier si la première partie est "0" pour déterminer l'état du bouton
-    if(parties[0] == "on"){
-        gameManager.jeTourne = true;
-        // Convertir la deuxième partie en valeur numérique pour obtenir la valeur de la roulette
-    }else if(parties[0] == "off"){
-        gameManager.jeTourne = false;
-    }
     // Maintenant, vous pouvez utiliser ces valeurs comme vous le souhaitez, par exemple les envoyer à votre GameManager
     // gameManager.boutonPresse = boutonPresse;
     // gameManager.valeurRoulette = valeurRoulette;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class ImageLoader : MonoBehaviour
 {
     public string imageFolderPath; // Chemin du dossier contenant les images
-    public int maxTextures = 14; // Nombre maximal de textures autorisées
+    private int maxTextures; // Nombre maximal de textures autorisées
 
     private List<(Texture2D, DateTime, string)> textureList = new List<(Texture2D, DateTime, string)>(); // Liste des textures chargées avec leur date d'ajout et chemin du fichier
     private GameObject[] templateFaces; // Tableau de template pour mettre les faces
@@ -17,7 +17,7 @@ public class ImageLoader : MonoBehaviour
     {
         // Récupérer tous les objets avec le tag "TemplateFace" au démarrage
         templateFaces = GameObject.FindGameObjectsWithTag("TemplateFaces");
-
+        maxTextures = templateFaces.Length;
         // Lancer la coroutine pour charger les images de manière asynchrone
         StartCoroutine(LoadImagesCoroutine());
     }
@@ -42,20 +42,23 @@ public class ImageLoader : MonoBehaviour
 
             // Ajouter la texture à la liste avec sa date d'ajout et le chemin du fichier
             textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
-
-            // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
-            if (textureList.Count > templateFaces.Length)
-            {
-                RemoveOldestTexture();
-            }
-
             // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
             if (textureList.Count > maxTextures)
             {
                 RemoveOldestFile();
             }
-            // Appeler la fonction uniquement lorsque la nouvelle image est détectée
-            OnNewImageDetected(texture);
+            // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
+            if (textureList.Count > templateFaces.Length)
+            {
+                RemoveOldestTexture();
+            }
+            if (textureList.Count <= templateFaces.Length)
+            {
+                OnNewImageDetected(texture);
+            }
+
+            
+            
             // Attendre un frame avant de charger la prochaine image
             await Task.Delay(1);
         }
@@ -117,40 +120,35 @@ public class ImageLoader : MonoBehaviour
 
     void RemoveOldestFile()
     {
-        // Recherche du fichier associé à la texture la plus ancienne dans la liste
-        DateTime oldestDate = DateTime.MaxValue;
-        int indexToRemove = -1;
-        for (int i = 0; i < textureList.Count; i++)
-        {
-            if (textureList[i].Item2 < oldestDate)
-            {
-                oldestDate = textureList[i].Item2;
-                indexToRemove = i;
-            }
-        }
+         // Trier la liste des textures par date d'ajout, de la plus ancienne à la plus récente
+        textureList.Sort((x, y) => DateTime.Compare(x.Item2, y.Item2));
 
-        // Suppression du fichier associé à la texture la plus ancienne
-        if (indexToRemove >= 0)
+        // Supprimer les fichiers associés aux textures les plus anciennes jusqu'à ce que le nombre de textures soit égal à maxTextures
+        while (textureList.Count > maxTextures)
         {
-            string filePathToRemove = textureList[indexToRemove].Item3;
-            File.Delete(filePathToRemove);
+            string filePathToRemove = textureList[0].Item3; // Chemin du fichier associé à la texture la plus ancienne
+            File.Delete(filePathToRemove); // Supprimer le fichier
+            textureList.RemoveAt(0); // Retirer la texture de la liste
         }
     }
+
     void OnNewImageDetected(Texture2D newTexture)
-{
+    {
     // Vous pouvez appeler d'autres fonctions ou effectuer des actions spécifiques ici
     gameManager.PlaySfxPhoto();
-}
+    }
+
+    bool IsImageAssociatedWithTemplate(Texture2D texture)
+    {
+        foreach (GameObject templateFace in templateFaces)
+        {
+        Renderer renderer = templateFace.GetComponent<Renderer>();
+        if (renderer != null && renderer.material.mainTexture == texture)
+        {
+            return true;
+        }
+        }
+        return false;
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
