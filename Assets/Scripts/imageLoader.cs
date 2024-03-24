@@ -41,24 +41,17 @@ public class ImageLoader : MonoBehaviour
             texture.LoadImage(fileData);
 
             // Ajouter la texture à la liste avec sa date d'ajout et le chemin du fichier
-            textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
+            
+            OnNewImageDetected(texture);
             // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
-            if (textureList.Count > maxTextures)
+            if (textureList.Count >= maxTextures)
             {
-                RemoveOldestFile();
+                RemoveOldestTextureAndFile(imagePath);
+                
             }
-            // Si le nombre de textures dépasse le nombre de templateFaces, retirer la texture la plus ancienne
-            if (textureList.Count > templateFaces.Length)
-            {
-                RemoveOldestTexture();
+            else{
+                textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
             }
-            if (textureList.Count <= templateFaces.Length)
-            {
-                OnNewImageDetected(texture);
-            }
-
-            
-            
             // Attendre un frame avant de charger la prochaine image
             await Task.Delay(1);
         }
@@ -94,61 +87,47 @@ public class ImageLoader : MonoBehaviour
         }
     }
 
-    void RemoveOldestTexture()
+    void RemoveOldestTextureAndFile(string newFilePath)
     {
-        // Recherche de la texture la plus ancienne dans la liste
+        
+        // Recherche de l'index de la texture la plus ancienne dans la liste
         DateTime oldestDate = DateTime.MaxValue;
         int indexToRemove = -1;
         for (int i = 0; i < textureList.Count; i++)
         {
             if (textureList[i].Item2 < oldestDate)
             {
-                oldestDate = textureList[i].Item2;
-                indexToRemove = i;
+            oldestDate = textureList[i].Item2;
+            indexToRemove = i;
             }
         }
 
-        // Suppression de la texture la plus ancienne de la liste
+        // Remplacer la texture la plus ancienne par la nouvelle
         if (indexToRemove >= 0)
         {
-            Texture2D textureToRemove = textureList[indexToRemove].Item1;
-            Destroy(textureToRemove); // Libérer la mémoire en détruisant la texture
-            textureList.RemoveAt(indexToRemove);
+            // Supprimer l'ancienne texture de la mémoire
+            Texture2D oldTexture = textureList[indexToRemove].Item1;
+            Destroy(oldTexture);
+
+            // Supprimer l'ancien fichier sur le disque
+            string filePathToRemove = textureList[indexToRemove].Item3;
+            File.Delete(filePathToRemove);
+
+            // Remplacer par la nouvelle texture
+            Texture2D newTexture = new Texture2D(2, 2);
+            byte[] fileData = File.ReadAllBytes(newFilePath);
+            newTexture.LoadImage(fileData);
+
+            textureList[indexToRemove] = (newTexture, File.GetLastWriteTime(newFilePath), newFilePath);
         }
+        
     }
 
-
-    void RemoveOldestFile()
-    {
-         // Trier la liste des textures par date d'ajout, de la plus ancienne à la plus récente
-        textureList.Sort((x, y) => DateTime.Compare(x.Item2, y.Item2));
-
-        // Supprimer les fichiers associés aux textures les plus anciennes jusqu'à ce que le nombre de textures soit égal à maxTextures
-        while (textureList.Count > maxTextures)
-        {
-            string filePathToRemove = textureList[0].Item3; // Chemin du fichier associé à la texture la plus ancienne
-            File.Delete(filePathToRemove); // Supprimer le fichier
-            textureList.RemoveAt(0); // Retirer la texture de la liste
-        }
-    }
 
     void OnNewImageDetected(Texture2D newTexture)
     {
     // Vous pouvez appeler d'autres fonctions ou effectuer des actions spécifiques ici
     gameManager.PlaySfxPhoto();
-    }
-
-    bool IsImageAssociatedWithTemplate(Texture2D texture)
-    {
-        foreach (GameObject templateFace in templateFaces)
-        {
-        Renderer renderer = templateFace.GetComponent<Renderer>();
-        if (renderer != null && renderer.material.mainTexture == texture)
-        {
-            return true;
-        }
-        }
-        return false;
     }
 
 }

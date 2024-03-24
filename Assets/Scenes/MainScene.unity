@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 423728200}
   audioSource2D: {fileID: 1032004360}
-  musiqueCaroussel: {fileID: 8300000, guid: b1e5122b0678d594d951ed9182329ae2, type: 3}
+  musiqueCaroussel: {fileID: 8300000, guid: 5a6cbfbd43779d146a9e6a8c898ee696, type: 3}
   audiosPhoto:
   - {fileID: 8300000, guid: bbdb537ab69c5de4790ef8333542b080, type: 3}
   - {fileID: 8300000, guid: 8cdb4d430c5da1a4d95f98bdf8168267, type: 3}
@@ -479,6 +479,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: -6111352573856662831, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 93d72027c3fe0994b9b7d3a2599a5252, type: 2}
     - target: {fileID: -5805756640104089420, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -714,6 +719,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d9323c779f1481444b04d327ef0372dd, type: 2}
+    - target: {fileID: 715738324614469882, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70c23bb25e9b732428a9710cb5eb311f, type: 2}
     - target: {fileID: 873613389716071186, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_TagString
@@ -954,6 +964,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TemplateFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 6279876936279866300, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af7bb8f595762f64381e0cb056c63537, type: 2}
     - target: {fileID: 6459758554676529996, guid: c528b83acb7c04f4f8ddc3a0baac1a98,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
