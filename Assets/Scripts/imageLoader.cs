@@ -41,17 +41,15 @@ public class ImageLoader : MonoBehaviour
             texture.LoadImage(fileData);
 
             // Ajouter la texture à la liste avec sa date d'ajout et le chemin du fichier
-            
+            textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
             OnNewImageDetected(texture);
             // Si le nombre de textures dépasse la limite globale, supprimer le fichier associé
-            if (textureList.Count >= maxTextures)
+            if (textureList.Count > maxTextures)
             {
                 RemoveOldestTextureAndFile(imagePath);
                 
             }
-            else{
-                textureList.Add((texture, File.GetLastWriteTime(imagePath), imagePath));
-            }
+            
             // Attendre un frame avant de charger la prochaine image
             await Task.Delay(1);
         }
